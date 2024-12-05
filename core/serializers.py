@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Individual, Course, Lesson, Classroom, Schedule
+from .models import Individual, Course, Lesson, Classroom
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -35,9 +35,9 @@ class ClassroomSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'capacity']
 
 
-class ScheduleSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Schedule
-        fields = ['id', 'course', 'professor', 'classroom', 'day_of_week', 'start_time', 'end_time']
+# class ScheduleSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Schedule
+#         fields = ['id', 'course', 'professor', 'classroom', 'day_of_week', 'start_time', 'end_time']
 
 

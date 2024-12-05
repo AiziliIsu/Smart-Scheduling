@@ -8,7 +8,6 @@ from .views import (
     StudentListView,
     CourseListView,
     ClassroomListView,
-    ScheduleListView,
     LessonListView,  # New view to list lessons
     CourseLessonListView,  # View for listing lessons for a specific course
 )
@@ -22,7 +21,7 @@ urlpatterns = [
     path('students/', StudentListView.as_view(), name='students'),
     path('courses/', CourseListView.as_view(), name='courses'),
     path('classrooms/', ClassroomListView.as_view(), name='classrooms'),
-    path('schedules/', ScheduleListView.as_view(), name='schedules'),
+    # path('schedules/', ScheduleListView.as_view(), name='schedules'),
     
     # New routes for Lesson
     path('lessons/', LessonListView.as_view(), name='lessons'),  # List all lessons

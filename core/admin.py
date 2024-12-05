@@ -20,7 +20,7 @@ class LessonAdmin(admin.ModelAdmin):
 
 admin.site.register(Individual)
 admin.site.register(Classroom)
-admin.site.register(Schedule)
+# admin.site.register(Schedule)
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Lesson, LessonAdmin)
 
