@@ -16,7 +16,8 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class IndividualSerializer(serializers.ModelSerializer):
-    courses = CourseSerializer(many=True)  # Many-to-many relationship with Course
+    courses_as_student = CourseSerializer(many=True)  # Many-to-many relationship with Course
+    courses_as_teacher = CourseSerializer(many=True)  # Many-to-many relationship with Course
     class Meta:
         model = Individual
         fields = '__all__'
