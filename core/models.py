@@ -20,6 +20,7 @@ class Individual(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField(unique=True)
     role = models.CharField(max_length=10, choices=ROLE_CHOICES)
+    timezone = models.IntegerField(default=6)
     courses_as_student = models.ManyToManyField(Course, related_name='cources_as_student')
     courses_as_teacher = models.ManyToManyField(Course, related_name='cources_as_teacher')
     scaler_value = models.FloatField(default=1)
