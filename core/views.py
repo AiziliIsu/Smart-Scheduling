@@ -1,11 +1,10 @@
-from django.shortcuts import render
 from rest_framework.generics import ListAPIView
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Individual, Course,  Lesson, Classroom, Schedule
-from .serializers import UserSerializer, IndividualSerializer, LessonSerializer, CourseSerializer, ClassroomSerializer, ScheduleSerializer
+from .models import Individual, Course,  Lesson, Classroom
+from .serializers import UserSerializer, IndividualSerializer, LessonSerializer, CourseSerializer, ClassroomSerializer
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -79,11 +78,11 @@ class ClassroomListView(ListAPIView):
     serializer_class = ClassroomSerializer
 
 
-class ScheduleListView(ListAPIView):
-    """
-    List all schedules.
-    """
-    queryset = Schedule.objects.all()
-    serializer_class = ScheduleSerializer
+# class ScheduleListView(ListAPIView):
+#     """
+#     List all schedules.
+#     """
+#     queryset = Schedule.objects.all()
+#     serializer_class = ScheduleSerializer
 
 
