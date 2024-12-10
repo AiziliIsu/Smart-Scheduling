@@ -9,7 +9,7 @@ class LessonInline(admin.TabularInline):
     extra = 1  # Number of empty lesson forms to display by default
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ('name', 'code', 'duration', 'is_mandatory', 'scaler_value')  # Fields to display in list view
+    list_display = ('name', 'code', 'is_mandatory', 'scaler_value')  # Fields to display in list view
     inlines = [LessonInline]  # Allows adding lessons inline within course form
 
 class LessonAdmin(admin.ModelAdmin):

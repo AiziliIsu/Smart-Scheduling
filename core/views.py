@@ -71,9 +71,6 @@ class StudentListView(ListAPIView):
     serializer_class = IndividualSerializer
 
 
-
-
-
 class ClassroomListView(ListAPIView):
     """
     List all classrooms.
