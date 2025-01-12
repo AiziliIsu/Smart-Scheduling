@@ -6,7 +6,7 @@ class LessonInline(admin.TabularInline):
     extra = 1
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ('name', 'code', 'duration', 'scaler_value')
+    list_display = ('title', 'course_code', 'scaler_value')
     inlines = [LessonInline]
 
 class LessonAdmin(admin.ModelAdmin):

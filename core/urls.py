@@ -3,7 +3,8 @@ from .views import (
     CourseListCreateView, CourseRetrieveUpdateDestroyView,
     IndividualListCreateView, IndividualRetrieveUpdateDestroyView,
     LessonListCreateView, LessonRetrieveUpdateDestroyView,
-    TimeSlotsListCreateView, TimeSlotsRetrieveUpdateDestroyView
+    TimeSlotsListCreateView, TimeSlotsRetrieveUpdateDestroyView,
+    delete_all_courses
 )
 
 urlpatterns = [
@@ -22,6 +23,8 @@ urlpatterns = [
     # TimeSlots URLs
     path('timeslots/', TimeSlotsListCreateView.as_view(), name='timeslot-list-create'),
     path('timeslots/<int:pk>/', TimeSlotsRetrieveUpdateDestroyView.as_view(), name='timeslot-detail'),
+    
+    path('delete-all-courses', delete_all_courses, name="delete-all-courses")
 ]
 
 
