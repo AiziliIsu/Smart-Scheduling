@@ -1,14 +1,23 @@
 from django.db import models
 
 class Course(models.Model):
-    name = models.CharField(max_length=200)
-    code = models.CharField(max_length=10, unique=True)
-    description = models.TextField(blank=True, null=True)
-    duration = models.IntegerField(default=90)
+    subject_area = models.CharField(max_length=20)
+    course_code = models.CharField(max_length=20)
+    title = models.CharField(max_length=200)
+    is_core = models.BooleanField(default=True)
+    actual_credits = models.IntegerField(default=6)
+    undergraduate_year = models.CharField(max_length=100)
+    semester = models.CharField(max_length=100)
+    cohort_number = models.IntegerField(blank=True, null=True)
+    course_type = models.CharField(max_length=200)
+    n_weeks = models.IntegerField(default=16)
+    class_meeting_patterns = models.CharField()
+    default_instructor = models.CharField(max_length=300)
+    
     scaler_value = models.FloatField(default=1.0)
     
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Lesson(models.Model):
