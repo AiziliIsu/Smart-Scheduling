@@ -20,4 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path('api/', include("core.urls")),
     path('admin/', admin.site.urls),
+    path('auth/', include('djoser.urls')),  # Djoser auth endpoints
+    path('auth/', include('djoser.urls.authtoken')),  # Token endpoints
+    path('auth/', include('djoser.urls.jwt')),  # Optional: JWT endpoints
 ]
