@@ -11,7 +11,7 @@ class Course(models.Model):
     cohort_number = models.IntegerField(blank=True, null=True)
     course_type = models.CharField(max_length=200)
     n_weeks = models.IntegerField(default=16)
-    class_meeting_patterns = models.CharField()
+    class_meeting_patterns = models.CharField(max_length=200)
     default_instructor = models.CharField(max_length=300)
     
     scaler_value = models.FloatField(default=1.0)
