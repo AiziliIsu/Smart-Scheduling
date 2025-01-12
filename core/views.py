@@ -1,3 +1,4 @@
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from .models import Course, Individual, Lesson, TimeSlots
 from .serializers import CourseSerializer, IndividualSerializer, LessonSerializer, TimeSlotsSerializer
@@ -42,6 +43,9 @@ class TimeSlotsRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     queryset = TimeSlots.objects.all()
     serializer_class = TimeSlotsSerializer
     
+
+
+@csrf_exempt
 def delete_all_courses(request):
     Course.objects.all().delete()
     return JsonResponse({"message": "All courses deleted successfully."}, status=200)
