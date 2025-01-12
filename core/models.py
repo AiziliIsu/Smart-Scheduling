@@ -3,7 +3,7 @@ from django.db import models
 class Course(models.Model):
     name = models.CharField(max_length=200)
     code = models.CharField(max_length=10, unique=True)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     duration = models.IntegerField(default=90)
     scaler_value = models.FloatField(default=1.0)
     
