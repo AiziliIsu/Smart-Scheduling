@@ -22,7 +22,21 @@ class IndividualSerializer(serializers.ModelSerializer):
 
 
 class LessonSerializer(serializers.ModelSerializer):
-    course = CourseSerializer()
+    course = serializers.PrimaryKeyRelatedField(
+        queryset=Course.objects.all(),
+        write_only = True
+    )
+    
+    course_data = CourseSerializer(source='course', read_only=True)
+    
+    def create(self, validated_data):
+        course_data = validated_data.pop('course', None)
+        if isinstance(course_data, dict):
+            course, _ = Course.objects.get_or_create(**course_data)
+        else:
+            course = course_data
+        return Lesson.objects.create(course = course, **validated_data)
+    
     class Meta:
         model = Lesson
         fields = '__all__'
